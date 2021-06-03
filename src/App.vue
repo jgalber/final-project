@@ -1,12 +1,29 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+  <div id="app">
+    <div id="nav">
+      <router-link to="/home">Home</router-link> |
+      <router-link to="/about">About</router-link> |
+      <router-link to="/blog">Blog</router-link> |
+      <router-link to="/destinations">Destinations</router-link> |
+      <router-link to="/contact">Contact</router-link>
+    </div>
+    <router-view/>
+    <Myfooter />
+  </div> 
 </template>
 
-<style lang="scss">
+<script>
+import Myfooter from './components/Myfooter.vue';
+
+  export default {
+    name: 'App',
+    components: {
+        Myfooter
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
