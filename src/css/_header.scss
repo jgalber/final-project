@@ -31,7 +31,6 @@
     }
 }
 
-
 // Header - Background Image 
 @mixin header-bg {
     display: block;
@@ -93,7 +92,7 @@
 // hamburger settings 
 @mixin hamburger {
     background-color: transparent;
-    color: $silver;
+    color: $platinum;
     border: none;
     font-size: $s-font;
     cursor: pointer;
@@ -103,7 +102,7 @@
 // Responsive layout different viewports - Hamburger menu
 @mixin h-menu-responsive {
     @include responsive(tabletXLarge) {
-            display: none;
+        display: none;
     }
     @include responsive(desktop) {
         display: none;
@@ -121,32 +120,7 @@
     height: fit-content;
     list-style: none;
     padding-left: 0;
-}
-
-// Responsive layout different viewports - UL - navbar
-@mixin h-list-responsive {
-    @include responsive(phone) {
-        @include navbar-mobile;
-        display: none;
-    }
-    @include responsive(tablet) {
-        @include navbar-tablet;
-        display: none;
-    }
-    @include responsive(tabletLarge) {
-        @include navbar-tabletL-desktop;
-        display: none;
-    }
-    @include responsive(tabletXLarge) {
-        @include navbar-tabletL-desktop;
-    }
-    @include responsive(desktop) {
-        @include navbar-tabletL-desktop;
-    }
-    @include responsive(desktopLarge) {
-        @include navbar-tabletL-desktop;
-        justify-content: space-evenly;
-    }
+    width: 100%;
 }
 
 // Navbar
@@ -165,7 +139,6 @@
     list-style: none;
 }
 
-
 // Navigation bar from tablet large to desktop
 @mixin navbar-tabletL-desktop {
     display: flex;
@@ -175,33 +148,12 @@
 }
 
 
-// Responsive layout different viewports - Hamburger menu display  
-@mixin hmenu-show-responsive {
-    @include responsive(phone) {
-        @include block;       
-    }
-    @include responsive(tablet) {
-        @include block;
-    }
-    @include responsive(tabletLarge) {
-        @include block;  
-    }
-}
-
 // Responsive, styling, hover on first list item (navbar)  
 @mixin top-navbar-item-1{
     padding: $xs-rem 0;
     @include responsive(tablet) {
         grid-column: 1;
         grid-row: 1;
-    }
-    // anchor 1
-    &--anchor1 { 
-        @include navbar-item;    
-        &:hover {
-            letter-spacing: $m-pxl;
-            text-transform: uppercase;
-        }
     }
 }
 
@@ -212,14 +164,6 @@
         grid-column: 2;
         grid-row: 1;
     }
-    // anchor 2
-    &--anchor2 {
-        @include navbar-item;
-        &:hover {
-            letter-spacing: $s-pxl;
-            font-style: italic;
-        }
-    }
 }
 
 // Responsive, styling, hover on third list item (navbar)
@@ -229,13 +173,6 @@
         grid-column: 1;
         grid-row: 2;
     }
-    // anchor 3
-    &--anchor3 {
-        @include navbar-item;
-        &:hover {
-            letter-spacing: $xl-pxl;
-        }
-    }
 }
 
 // Responsive, styling, hover on fourth list item (navbar)
@@ -244,14 +181,6 @@
     @include responsive(tablet) {
         grid-column: 2;
         grid-row: 2;
-    }
-    // anchor 3
-    &--anchor4 {
-        @include navbar-item;
-        &:hover {
-            letter-spacing: $s-pxl;
-            text-transform: uppercase;
-        }
     }
 }  
 

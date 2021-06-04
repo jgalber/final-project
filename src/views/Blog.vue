@@ -1,6 +1,7 @@
 <template>
     <Myheader />
 </template>
+
 <script>
 import Myheader from '../components/Myheader.vue';
 

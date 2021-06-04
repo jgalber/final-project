@@ -8,6 +8,7 @@ import Destinations from '../views/Destinations.vue';
 // Components
 import Myfooter from '../components/Myfooter.vue';
 import Myheader from '../components/Myheader.vue';
+import Hamburger from '../components/Hamburger.vue';
 
 
 const routes = [
@@ -46,6 +47,11 @@ const routes = [
     name: 'Myheader',
     component: Myheader
   },
+  {
+    path: '/hamburger',
+    name: 'Hamburger',
+    component: Hamburger
+  }
  
 ]
 
