@@ -2,124 +2,494 @@
 // All content 
 // GLOBAL
 @mixin container {
-    display: block;
-    margin: 0 auto;
+    @include block;
     text-align: center;
 }
 
-@mixin header-mobile-tablet {
-    display: block;
-    margin: 0 auto;
-    width: 90%;
-}
-
-@mixin header-tabletL-desktop {
-    display: block;
-    margin: 0 auto;
-    width: 100%;
-}
-
-@mixin navbar-mobile {
-    display: flex;
-    flex-direction: column;
-}
-
-@mixin nav-item { 
-    padding: 1rem 0;
-    border: 1px solid darkkhaki;
-}
-
-@mixin anchors {
-    color: #FFF;
-    text-decoration: none;
-}
-
+// RESPONSIVE
 // Main area
 @mixin main-mobile-tablet {
     margin: 0 auto;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-top: $xs-rem;
+    margin-bottom: $xs-rem;
     width: 90%;
     text-align: center;
 }
 
 @mixin main-tabletL-desktop { 
-    width: 95%;
+    width: 100%;
     margin: 0 auto;
-    margin-bottom: 1rem;
+    margin-bottom: $xs-rem;
 }
 
 @mixin article-mobile-tablet {
     margin: 0 auto;
     width: 95%;
-    margin-bottom: 1rem;
+    margin-bottom: $xs-rem;
 }
 
-// Footer
-@mixin footer {
-    margin: 0 auto;
-    margin-bottom: 1rem;
-    width: 90%;
-    height: fit-content;
-}
-
-@mixin navbar-tablet {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr 1fr;
-    width: 100%;
-    height: fit-content;
-}
-
-// Tablet large
-@mixin navbar-tabletL-desktop {
+// About page Article
+@mixin about-page-article {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
     align-items: center;
-    flex-direction: row;
+    margin: $l-rem $xs-rem;
 }
 
-@mixin section-tabletLarge {
-    display: grid;
-    grid-template-columns: repeat(9, 1fr);
-    grid-template-rows: 3rem repeat(autofill 2, 1fr);
-    grid-gap: 1rem;
-    padding-bottom: 1rem;
+// PAGES
+// About page
+@mixin about-main-responsive {
+    @include responsive(phone) {
+        @include main-mobile-tablet;
+        width: 100%;
+        margin: 0;
+        padding: $s-rem 0;
+    }
+    @include responsive(tablet) {
+        @include main-mobile-tablet;
+        width: 100%;
+        margin: 0;
+        padding: $s-rem 0;
+    }
+    @include responsive(tabletLarge) {
+        @include main-tabletL-desktop;
+        width: 100%;
+        margin-bottom: 0;
+    }
+    @include responsive(tabletXLarge) {
+        @include main-tabletL-desktop;
+        width: 100%;
+        margin-bottom: 0;
+    }
+    @include responsive(desktop) {
+        @include main-tabletL-desktop;
+        width: 100%;
+        margin-bottom: 0;
+    }
+    @include responsive(desktopLarge) {
+        @include main-tabletL-desktop;
+        width: 100%;
+        margin-bottom: 0;
+    }
 }
 
-@mixin section-tabletXLarge {
-    display: grid;
-    grid-template-columns: repeat(11,1fr);
-    grid-template-rows: 3rem repeat(autofill 2, 1fr);
-    grid-gap: 1rem;
-    padding-bottom: 1rem;
+@mixin about-section-responsive {
+    @include responsive(phone) {
+        width: 95%;
+        margin: 0 auto;
+    }
+    @include responsive(tabletLarge) {
+        @include section-tabletLarge;
+    }
+    @include responsive(tabletXLarge) {
+        @include section-tabletXLarge;
+    }
+    @include responsive(desktop) {
+        @include section-desktop;
+        width: 100%;
+    }
+    @include responsive(desktopLarge) {
+        @include section-desktopL;
+        width: 100%;
+    }
 }
 
-@mixin section-desktop {
-    display: grid;
-    grid-template-columns: repeat(12,1fr);
-    grid-template-rows: 3rem repeat(autofill 2, 1fr);
-    grid-gap: 1rem;
-    padding-bottom: 1rem;
+@mixin about-title-responsive {
+    @include responsive(phone) {
+        text-align: center;
+    }
+    @include responsive(tablet) {
+        text-align: center;
+    }
+    @include responsive(tabletLarge) {
+        grid-column: 4 / span 3;
+        grid-row: 1;
+        @include txt-align-slf;
+        align-self: end;
+        margin: 0;
+    }
+    @include responsive(tabletXLarge) {
+        grid-column: 5 / span 3;
+        grid-row: 1;
+        @include txt-align-slf;
+        margin: $s-rem 0 0 0;
+    }
+    @include responsive(desktop) {
+        grid-column: 5 / span 4;
+        grid-row: 1;
+        @include txt-align-slf;
+        margin: $s-rem 0 0 0;
+    }
+    @include responsive(desktopLarge) {
+        grid-column: 6 / span 4;
+        grid-row: 1;
+        text-align: center;
+        align-self: end;
+    }
 }
 
-@mixin section-desktopL {
-    display: grid;
-    grid-template-columns: repeat(14,1fr);
-    grid-template-rows: 3rem repeat(autofill 3, 1fr);
-    grid-gap: 1rem;
-    padding-bottom: 1rem;
+@mixin about-first-article-responsive {
+    @include responsive(tablet) {
+        grid-column: 2 / 6;
+        grid-row: 2;
+        margin: $l-rem;
+    }
+    @include responsive(tabletLarge) {
+        grid-column: 2 / 6;
+        grid-row: 2;
+        margin: 0;
+    }
+    @include responsive(tabletXLarge) {
+        grid-column: 5 / 11;
+        grid-row: 2;
+        margin: 0 $xs-rem;
+    }
+    @include responsive(desktop) {
+        grid-column: 6 / 12;
+        grid-row: 2;
+        margin: 0 0 0 $xs-rem;
+    }
+    @include responsive(desktopLarge) {
+        grid-column: 8 / 14;
+        grid-row: 2;
+        margin: 0;
+    }
 }
 
+@mixin about-article-first-img-responsive {
+    @include responsive(tabletLarge) {
+        width: 85%;
+    }
+}
 
-// temporary anchors
-@mixin anchors-temp {
-                    
-    // Temporary styles
-    background: darkcyan;
-    transition: all 100ms ease-in-out;
+@mixin about-scnd-article-responsive {
+    @include responsive(tablet) {
+        @include about-page-article;
+        margin: $l-rem;
+        grid-column: 6 / 9;
+        grid-row: 2;
+    }
+    @include responsive(tabletLarge) {
+        grid-column: 6 / 9;
+        grid-row: 2;
+        margin: 0;
+    }
+    @include responsive(tabletXLarge) {
+        grid-column: 5 / 11;
+        grid-row: 3;
+        margin: 0 $xs-rem;
+    }
+    @include responsive(desktop) {
+        grid-column: 6 / 12;
+        grid-row: 3;
+        margin: 0 0 0 $xs-rem;
+    }
+    @include responsive(desktopLarge) {
+        grid-column: 8 / 14;
+        grid-row: 3;
+        margin: 0;
+    }
+}
+
+@mixin about-thrd-article-responsive {
+    @include responsive(tablet) {
+        @include about-page-article;
+        grid-column: 2 / 9;
+        grid-row: 3;
+        margin: $l-rem;
+    }
+    @include responsive(tabletLarge) {
+        grid-column: 2 / 9;
+        grid-row: 3;
+        margin: 0;
+    }
+    @include responsive(tabletXLarge) {
+        grid-column: 5 / 11;
+        grid-row: 4;
+        margin: 0;
+    }
+    @include responsive(desktop) {
+        grid-column: 6 / 12;
+        grid-row: 4;
+        margin: 0;
+    }
+    @include responsive(desktopLarge) {
+        grid-column: 8 / 14;
+        grid-row: 4;
+        margin: 0;
+    }
+}
+
+@mixin about-article-thrd-img-responsive {
+    @include responsive(phone) {
+        width: 90%;
+    }
+    @include responsive(tabletXLarge) {
+        width: 75%;
+    }
+    @include responsive(desktop) {
+        width: 75%;
+    }
+}
+
+@mixin about-sidebar-responsive {
+    @include responsive(tablet) {
+        width: 90%;
+    }
+    @include responsive(tabletLarge) {
+        grid-column: 2 / 9;
+        grid-row: 4;
+    }
+    @include responsive(tabletXLarge) {
+        grid-column: 2 / 5;
+        grid-row: 2 / 5;
+    }
+    @include responsive(desktop) {
+        grid-column: 2 / 6;
+        grid-row: 2 / span 3;
+    }
+    @include responsive(desktopLarge) {
+        grid-column: 3 / 7;
+        grid-row: 2 / span 3;
+    }
+}
+
+// Advisors page
+@mixin advisors-img-responsive {
+    @include responsive(desktop) {
+        width: 32%;
+    }
+    @include responsive(desktopLarge) {
+        width: 26%;
+    }
+}
+
+@mixin advisor-img-responsive {
+    @include responsive(desktop) {
+        width: 70%;
+    }
+    @include responsive(desktopLarge) {
+        width: 40%;
+    }   
+}
+
+@mixin advisor2-img-responsive {
+    @include responsive(desktop) {
+        width: 70%;
+    }
+    @include responsive(desktopLarge) {
+        width: 45%;
+    }
+}
+
+@mixin advisor6-img-responsive {
+    @include responsive(desktop) {
+        width: 70%;
+    }
+    @include responsive(desktopLarge) {
+        width: 30%;
         &:hover {
-            background-color: #333;
+            width: 40%;
         }
+    } 
+}    
+
+@mixin advisor7-img-responsive {
+    @include responsive(desktop) {
+        width: 70%;
+    }
+    @include responsive(desktopLarge) {
+        width: 30%;
+        &:hover {
+            width: 35%;
+        }
+    } 
+}
+
+@mixin advisor8-img-responsive {
+    @include responsive(desktop) {
+        width: 70%;
+    }
+    @include responsive(desktopLarge) {
+        width: 35%;
+        &:hover {
+            width: 40%;
+        }
+    }
+}
+
+// Advisor component layout section
+@mixin ad-section-bio-responsive {
+    @include responsive(tabletXLarge) {
+        margin: $s-rem $l-rem;
+    }
+    @include responsive(desktop) {
+        margin: $l-rem $vii-rem $s-rem $l-rem;
+    }
+    @include responsive(desktopLarge) {
+        margin-right: $x-rem;
+    }
+}
+
+
+// Blog page
+@mixin blog-main-responsive {
+    @include responsive(tabletLarge) {
+        padding-top: $m-rem;
+    }
+    @include responsive(desktop) {
+        padding-top: $m-rem;
+        padding-bottom: $s-rem;
+    }
+    @include responsive(desktopLarge) {
+        padding-bottom: $m-rem;
+    }
+}
+
+@mixin blog-h2-responsive {
+    @include responsive(phone) {
+        font-size: $m-font;
+    }
+    @include responsive(tablet) {
+        font-size: $m-font;
+    }
+}
+
+@mixin blog-images-responsive {
+    @include responsive(tablet) {
+        width: 75%;
+        margin: 0 auto;
+    }
+    @include responsive(tabletLarge) {
+        width: 70%;
+        margin: 0 auto;
+    }
+    @include responsive(tabletXLarge) {
+        width: 65%;
+        margin: 0 auto;
+    }
+    @include responsive(desktop) {
+        grid-area: image;
+        margin: 0;
+        justify-self: self-end;
+    }
+    @include responsive(desktopLarge) {
+        width: 75%;
+        grid-area: image;
+        margin: 0;
+        justify-self: self-end;
+    }
+}
+
+@mixin blog-h3-responsive {
+    @include responsive(phone) {
+        font-size: $s-font;
+    }
+    @include responsive(tablet) {
+        font-size: $s-font;
+    }
+    @include responsive(desktop) {
+        grid-area: heading;
+    }
+    @include responsive(desktopLarge) {
+        grid-area: heading;
+        font-size: $m-font;
+    }
+}
+
+@mixin blog-p-responsive {
+    @include responsive(tablet) {
+        margin: 0 $l-rem $s-rem $l-rem;
+    }
+    @include responsive(tabletLarge) {
+        margin: 0 $xl-rem $s-rem $xl-rem;
+    }
+    @include responsive(tabletXLarge) {
+        margin: 0 $vii-rem $m-rem $vii-rem;
+    }
+    @include responsive(desktop) {
+        grid-area: text;
+        margin: 0 $l-rem $m-rem $m-rem;
+    }
+    @include responsive(desktopLarge) {
+        grid-area: text;
+        margin-top: $m-rem;
+        margin-bottom: 0;
+        margin-right: $xii-rem;
+        font-size: $xs-font;
+        line-height: $m-rem;
+    }
+}
+
+// Contact page
+@mixin contact-form-responsive {
+    @include responsive(phone) {
+        width: 100%;
+    }
+    @include responsive(tablet) {
+        width: 100%;
+    }
+    @include responsive(tabletLarge) {
+        width: 80%;
+    }
+    @include responsive(tabletXLarge) {
+        width: 80%;
+    }
+    @include responsive(desktop) {
+        width: 75%;
+    }
+}
+
+@mixin contact-txtarea-responsive {
+    @include responsive(tablet) {
+        width: 60%;
+    }
+    @include responsive(tabletLarge) {
+        width: 60%;
+    }
+    @include responsive(tabletXLarge) {
+        width: 50%;
+    }
+    @include responsive(desktop) {
+        width: 45%;
+    }
+    @include responsive(desktopLarge) {
+        width: 45%;
+    }
+}
+
+@mixin contact-input-responsive {
+    @include responsive(tablet) {
+        width: 54%;
+    }
+    @include responsive(tabletLarge) {
+        width: 50%;
+    }
+    @include responsive(tabletXLarge) {
+        width: 40%;
+    }
+    @include responsive(desktop) {
+        width: 40%;
+    }
+    @include responsive(desktopLarge) {
+        width: 40%;
+    }
+}
+
+@mixin contact-submit-btn-responsive {
+    @include responsive(tablet) {
+        width: 27%;
+    }
+    @include responsive(tabletLarge) {
+        width: 26%;
+    }
+    @include responsive(tabletXLarge) {
+        width: 24%;
+    }
+    @include responsive(desktop) {
+        width: 22%;
+    }
+    @include responsive(desktopLarge) {
+        width: 20%;
+    }
 }

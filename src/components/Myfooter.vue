@@ -4,7 +4,7 @@
             <nav class="footer__nav">
                 <ul class="footer__nav__list">
                     <li class="footer__nav__list--item">
-                        <a class="footer__nav__list--item--anchor" href="#home">Homepage</a></li>
+                        <a class="footer__nav__list--item--anchor" href="#/">Homepage</a></li>
                     <li class="footer__nav__list--item">
                         <a class="footer__nav__list--item--anchor" href="#contact">Contact</a></li>
                     <li class="footer__nav__list--item">
@@ -19,15 +19,10 @@
             </div>
             <small>&copy; 2021 JGalber Designs</small>
     </footer>
-
 </template>
     
-<script>
-// copyright prop
-// export default {
-    
-// }
-</script>
+<script></script>
+
 <style lang="scss" scoped>
 @import "../css/_color.palette.scss";
 @import "../css/_fonts.scss";
@@ -38,97 +33,90 @@
 @import "../css/_units.scss";
 
 
-    .footer {
-        @include fb-footer;
-        &__logo--footer {
-            @include logo-item;
-            @include logo--footer;
-            @include responsive(phone) {
-                padding-right: $m-rem;
-                padding-left: $m-rem;
-                line-height: $m-rem;
-            }
-        }
-            
-        &__nav {
-            margin: $s-rem 0;
-            &__list {
-                @include list;
-                @include responsive(phone) {
-                    display: flex;
-                    flex-direction: column;
-                }
-                &--item {
-                    @include footer-list-item;
-                    @include responsive(phone) {
-                        margin-right: 0;
-                        margin-bottom: $xs-rem;
-                    }
-                    &::before  {
-                        @include footer-list-item-before;
-                    }
-                    &:hover::before{
-                        @include footer-list-item-hover-before;
-                    }  
-                }
-
-                &--item:last-child {
-                    margin-right: 0;
-                }
-
-                &--item::after {
-                    @include footer-list-item-after;
-                    @include responsive(phone) {
-                        display: none;
-                    }
-                }
-
-                &--item:last-of-type::after {
-                    display: none;
-                }
-                
-                &--item--anchor {
-                    color: $platinum;
-                    text-decoration: none;
-                }
-            }
-        }
-
-        &__fa {
-            @include fa;      
-        }
-
-        .fab:first-child {
-            @include sm-hover;
-            &:hover {
-                color: $facebook;
-            }
-        }
-
-        .fab:nth-child(2) {
-            @include sm-hover;
-            &:hover {
-                color: $instagram;
-            }        
-        }
-
-        .fab:nth-child(3) {
-            @include sm-hover;
-            &:hover {
-                color: $pinterest;
-            }        
-        }
-
-        .fab:last-child {
-            @include sm-hover;
-            &:hover {
-                color: $twitter;
-            }        
-        }
-
-        & small {
-            @include copy-info;
+.footer {
+    @include fb-footer;
+    &__logo--footer {
+        @include logo-item;
+        @include logo--footer;
+        @include responsive(phone) {
+            line-height: $m-rem;
+            width: 90%;
         }
     }
         
+    &__nav {
+        margin: $s-rem 0;
+        &__list {
+            padding: 0;
+            @include list;
+            @include footer-navbar-responsive; 
+            
+            &--item {
+                @include footer-list-item;
+                @include footer-nav-item-responsive;
+              
+            }
+            &--item:first-child {
+                padding-left: 0;
+            }
+
+            &--item:last-child {
+                margin-right: 0;
+            }
+
+            &--item::after {
+                @include footer-list-item-after;
+                @include responsive(phone) {
+                    display: none;
+                }
+            }
+
+            &--item:last-of-type::after {
+                display: none;
+            }
+            
+            &--item--anchor {
+                color: $platinum;
+                text-decoration: none;
+            }
+        }
+    }
+
+    &__fa {
+        @include fa;      
+    }
+
+    .fab:first-child {
+        @include sm-hover;
+        &:hover {
+            color: $facebook;
+        }
+    }
+
+    .fab:nth-child(2) {
+        @include sm-hover;
+        &:hover {
+            color: $instagram;
+        }        
+    }
+
+    .fab:nth-child(3) {
+        @include sm-hover;
+        &:hover {
+            color: $pinterest;
+        }        
+    }
+
+    .fab:last-child {
+        @include sm-hover;
+        &:hover {
+            color: $twitter;
+        }        
+    }
+
+    & small {
+        @include copy-info;
+    }
+}
+    
 </style>

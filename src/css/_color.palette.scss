@@ -1,4 +1,4 @@
-// Colors
+// Colors & Backgrounds
 $white: #FFF;
 $platinum: #ebebeb;
 $lightgray: #d6d6d6;
@@ -7,6 +7,32 @@ $black: #000;
 
 $shadow-logo: hsla(230,40%,50%,1);
 $hover-logo: rgb(97, 185, 243);
+
+$header-bg-linear-img: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../images/annie-spratt-about-unsplash.jpg);
+
+$top-list-bg-linear: linear-gradient(360deg, rgb(121, 107, 107), transparent); 
+
+$about-main-bg-color: rgb(95,74,80);
+$about-main-bg-linear: linear-gradient(94deg, rgba(95,74,80,0.9363095580028886) 13%, rgba(0,15,48,0.9251050762101716) 41%, rgba(136,103,64,0.9615196420365021) 82%, rgba(2,100,187,0.373284347918855) 100%);
+
+$advisor-main-bg-color: rgb(122,171,210);
+$advisor-main-bg-linear: linear-gradient(90deg, rgba(122,171,210,1) 0%, rgba(132,121,144,1) 41%);
+$advisor-h2-bg-color: rgb(175,139,110);
+$advisor-h2-bg-linear: linear-gradient(56deg, rgba(175,139,110,0.9139005944174545) 4%, rgba(241,209,76,0.8830882694874825) 44%, rgba(205,87,39,0.8018557764902836) 75%, rgba(218,205,55,0.9139005944174545) 100%);
+$advisor-section-bg-color: rgb(29,161,242);
+$advisor-section-bg-linear: linear-gradient(90deg, rgba(29,161,242,1) 0%, rgba(66,103,178,0.8270658605238971) 62%, rgba(201,124,136,1) 100%);
+
+$blog-main-bg-color: rgb(251,253,252);
+$blog-main-bg-moz-linear: -moz-linear-gradient(90deg, rgba(251,253,252,1) 0%, rgba(1,110,188,1) 6%, rgba(1,110,188,1) 94%, rgba(241,218,201,0.9423690967345506) 100%);
+$blog-main-bg-webkit-linear: -webkit-linear-gradient(90deg, rgba(251,253,252,1) 0%, rgba(1,110,188,1) 6%, rgba(1,110,188,1) 94%, rgba(241,218,201,0.9423690967345506) 100%);
+$blog-main-bg-linear: linear-gradient(90deg, rgba(251,253,252,1) 0%, rgba(1,110,188,1) 6%, rgba(1,110,188,1) 94%, rgba(241,218,201,0.9423690967345506) 100%);
+$blog-main-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fbfdfc",endColorstr="#f1dac9",GradientType=1);
+
+$fb-footer-bx-shdw-color: #502926;
+$footer-list-item-hover-color: #0074D9;
+$blog-text-hover: rgb(230, 255, 6);
+$classic-yellow: yellow;
+
 
 // Social media
 $facebook: #4267B2;
@@ -20,3 +46,18 @@ $sweet-red: rgb(199, 87, 87);
 $fucsia-crayola: rgb(196, 99, 196);
 $max-blue: rgb(99, 165, 196);
 $azure: rgb(218, 238, 247);
+// extra color for anchors
+$anchor-temp: darkcyan;
+$anchor-temp-hover: #333;
+
+// MIXINS
+// Anchors
+@mixin anchors {
+    color: $white;
+    text-decoration: none;
+}
+
+// Contact background image
+@mixin contact-bg {
+    background: url(../images/anders-jilden-vernazza-unsplash.jpg);
+}

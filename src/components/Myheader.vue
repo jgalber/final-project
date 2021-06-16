@@ -31,6 +31,8 @@ import Hamburger from "../components/Hamburger.vue";
 
  
 .grid { 
+  margin: 0;
+  padding: 0;
   &__header {
     // Media queries - full content _header.scss
     @include header-responsive;

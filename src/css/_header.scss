@@ -1,8 +1,8 @@
 // Header responsive layout
 @mixin header-mobile-tablet {
     @include block;
-    width: 90%;
 }
+
 @mixin header-tabletL-desktop {
     @include block;
     width: 100%;
@@ -10,12 +10,13 @@
 
 // Responsive layout different viewports
 @mixin header-responsive {
-    // height: $xxl-rem;
     @include responsive(phone) {
         @include header-mobile-tablet;
+        width: 100%;
     }
     @include responsive(tablet) {
         @include header-mobile-tablet;
+        width: 100%;
     }
     @include responsive(tabletLarge) {
         @include header-tabletL-desktop;
@@ -36,10 +37,19 @@
     display: block;
     width: 100%;
     height: fit-content;
-    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../images/annie-spratt-about-unsplash.jpg);
+    background-image: $header-bg-linear-img;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom right;
+}
+
+@mixin homeader-bg {
+    display: block;
+    width: 100%;
+    height: 800px;
+    background-image: url(../images/anders-jilden-vernazza-unsplash.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 // Main title
@@ -89,16 +99,6 @@
     }
 }
 
-// hamburger settings 
-@mixin hamburger {
-    background-color: transparent;
-    color: $platinum;
-    border: none;
-    font-size: $s-font;
-    cursor: pointer;
-    margin: 1rem 0;
-}
-
 // Responsive layout different viewports - Hamburger menu
 @mixin h-menu-responsive {
     @include responsive(tabletXLarge) {
@@ -110,12 +110,167 @@
     @include responsive(desktopLarge) {
         display: none;
     }
-}            
+}     
+
+// hamburger settings 
+@mixin hamburger {
+    background-color: transparent;
+    color: $platinum;
+    border: none;
+    font-size: $s-font;
+    cursor: pointer;
+    margin: $xs-rem 0;
+}
+
+@mixin hamburger-topNav-responsive {
+    @include responsive(tabletXLarge) {
+        @include navbar-tabletL-desktop;
+        display: none;
+    }
+    @include responsive(desktop) {
+        @include navbar-tabletL-desktop;
+        display: none;
+    }
+    @include responsive(desktopLarge) {
+        @include navbar-tabletL-desktop;
+        display: none;
+    } 
+} 
+
+@mixin hamburger-topNavWide-responsive {
+    @include responsive(phone) {
+        @include navbar-mobile;
+        display: none;
+    }
+    @include responsive(tablet) {
+        @include navbar-tablet;
+        display: none;
+    }
+    @include responsive(tabletLarge) {
+        @include navbar-tabletL-desktop;
+        display: none;
+    }
+    @include responsive(tabletXLarge) {
+        @include navbar-tabletL-desktop;
+    }
+    @include responsive(desktop) {
+        @include navbar-tabletL-desktop;
+    }
+    @include responsive(desktopLarge) {
+        @include navbar-tabletL-desktop;
+        justify-content: space-evenly;
+    }
+} 
+
+// Homeburger is the Homepage's hamburger navigation layout.
+// Sub-component of Homeader
+@mixin homeburger-topNav-responsive {
+    @include responsive(tabletXLarge) {
+        @include navbar-tabletL-desktop;
+        display: none;
+    }
+    @include responsive(desktop) {
+        @include navbar-tabletL-desktop;
+        display: none;
+    }
+    @include responsive(desktopLarge) {
+        @include navbar-tabletL-desktop;
+        display: none;
+    } 
+}
+
+@mixin homeburger-topNavWide-responsive {
+    @include responsive(phone) {
+        @include navbar-mobile;
+        display: none;
+    }
+    @include responsive(tablet) {
+        @include navbar-tablet;
+        display: none;
+    }
+    @include responsive(tabletLarge) {
+        @include navbar-tabletL-desktop;
+        display: none;
+    }
+    @include responsive(tabletXLarge) {
+        @include navbar-tabletL-desktop;
+    }
+    @include responsive(desktop) {
+        @include navbar-tabletL-desktop;
+    }
+    @include responsive(desktopLarge) {
+        @include navbar-tabletL-desktop;
+        justify-content: space-evenly;
+    }
+}
+
+// Homeader is the Homepage's header layout that includes the navigation layout, Homeburger.
+@mixin homeader-bg-img-responsive {
+    @include responsive(phone) {
+        background-position: bottom right;
+        height: 700px;
+    }
+    @include responsive(tablet) {
+        background-position: bottom center;
+        height: 900px;
+    }
+    @include responsive(tabletLarge) {
+        background-position: top left;
+        height: 900px;
+    }
+    @include responsive(tabletXLarge) {
+        background-position: top left;
+        height: 950px;
+    }
+    @include responsive(desktop) {
+        height: 1200px;
+    }
+    @include responsive(desktopLarge) {
+        height: 1200px;
+    }
+}
+
+@mixin homeader-logo-responsive {
+    @include responsive(phone) {
+        font-size: $l-font;
+        padding-top: $xl-rem;
+    }
+    @include responsive(tablet) {
+        font-size: $l-font;
+        padding-top: $viii-rem;
+    }
+    @include responsive(tabletLarge) {
+        font-size: $xl-font;
+        padding-top: $vii-rem;
+    }
+    @include responsive(tabletXLarge) {
+        font-size: $xl-font;
+        padding-top: $xx-rem;
+    }
+    @include responsive(desktop) {
+        font-size: $xl-font;
+        padding-top: $xx-rem;
+    }
+    @include responsive(desktopLarge) {
+        font-size: $viii-rem;
+        padding-top: $x-rem;    
+    }
+}
 
 // Ul - navbar settings
 @mixin top-list {
     font-family: $nav-list-font;
-    background: linear-gradient(360deg, rgb(121, 107, 107), transparent);
+    background: $top-list-bg-linear;
+    background-color: transparent;
+    height: fit-content;
+    list-style: none;
+    padding-left: 0;
+    width: 100%;
+}
+
+@mixin home-top-list {
+    font-family: $nav-list-font;
+    background: linear-gradient(120deg, rgb(121, 107, 107), transparent);
     background-color: transparent;
     height: fit-content;
     list-style: none;
@@ -130,14 +285,6 @@
     flex-direction: column;
 }
 
-// Top navbar
-@mixin navbar-tablet {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr 1fr;
-    @include full-x-fit-y;
-    list-style: none;
-}
 
 // Navigation bar from tablet large to desktop
 @mixin navbar-tabletL-desktop {

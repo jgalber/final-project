@@ -1,35 +1,35 @@
 <template>
   <div class="test-nav">
     <button v-on:click="toggleShow" class="toggle"  id="hamburger">  
-        <i class="fas fa-bars"></i>
+      <i class="fas fa-bars"></i>
     </button>
     <ul v-show="navShowing" class="topNav" id="nav-ul">
       <li class="item1">
-        <a class="item1__anchor1" href="#/">Home</a>
+        <a class="item1__anchor1" href="#about">About</a>
       </li>
       <li class="item2">
-        <a class="item2__anchor2" href="#about">About</a>
+        <a class="item2__anchor2" href="#advisors">Advisors</a>
       </li>
       <li class="item3">
-        <a class="item3__anchor3" href="#advisors">Advisors</a>
+        <a class="item3__anchor3" href="#blog">Blog</a>
       </li>
       <li class="item4">
-        <a class="item4__anchor4" href="#blog">Blog</a>
+        <a class="item4__anchor4" href="#contact">Contact</a>
       </li>
     </ul>
 
     <ul class="topNavWide">
       <li class="item1">
-        <a class="item1__anchor1" href="#/">Home</a>
+        <a class="item1__anchor1" href="#about">About</a>
       </li>
       <li class="item2">
-        <a class="item2__anchor2" href="#about">About</a>
+        <a class="item2__anchor2" href="#advisors">Advisors</a>
       </li>
       <li class="item3">
-        <a class="item3__anchor3" href="#advisors">Advisors</a>
+        <a class="item3__anchor3" href="#blog">Blog</a>
       </li>
       <li class="item4">
-        <a class="item4__anchor4" href="#blog">Blog</a>
+        <a class="item4__anchor4" href="#contact">Contact</a>
       </li>
     </ul>
   </div>
@@ -37,7 +37,7 @@
 
 <script>
   export default {
-    name: 'Hamburger',
+    name: 'Homeburger',
     data() {
       return  {
         navShowing: false
@@ -60,6 +60,14 @@
 @import "../css/_media.queries.scss";
 @import "../css/_units.scss";
 
+*,
+html,
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 .test-nav { 
   display: flex;
   flex-direction: column;
@@ -74,21 +82,20 @@
   @include h-menu-responsive;
 }
 
-// This Navigation is displayed only on small screen viewports
 .topNav {
   margin: 0;
-  @include top-list;
-  @include hamburger-topNav-responsive;
+  padding: 0;
+  @include home-top-list;
+  @include homeburger-topNav-responsive; 
 }
 
-// This Navigation is displayed only on large tables, desktops and other large screen viewports
 .topNavWide {
   margin: 0;
   @include top-list;
-  @include hamburger-topNavWide-responsive;
+  @include homeburger-topNavWide-responsive;
 }
 
-// Lists items and their anchors
+
 .item1{
   @include top-navbar-item-1;
   &__anchor1{
@@ -112,7 +119,7 @@
 .item3{
   @include top-navbar-item-3;
   &__anchor3 {
-  @include navbar-item;
+    @include navbar-item;
     &:hover {
       letter-spacing: $xl-pxl;
     }
@@ -121,12 +128,12 @@
 .item4{
   @include top-navbar-item-4;
   &__anchor4 {
-  @include navbar-item;
+    @include navbar-item;
     &:hover {
       letter-spacing: $s-pxl;
       text-transform: uppercase;
     }
   }
 }
-
+         
 </style>

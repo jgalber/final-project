@@ -1,20 +1,23 @@
 <template>
-  <!-- <div class="home"> -->
-    <!-- <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div> -->
   <div class="grid">
-  <!-- <Myfooter /> -->
+    <Homeader />
+      <header id="showcase" class="grid__header">
+        <div class="grid__header__bg-img"></div>
+      </header>
   </div>
-  
+  <Myfooter />
 </template>
 
 <script>
-// import Myfooter from '../components/Myfooter.vue';
-// export default {
-//     name: 'App',
-//     components: {
-//         Myfooter
-//     }
-//   }
+import Homeader from '@/components/Homeader.vue';
+import Myfooter from '@/components/Myfooter.vue';
+
+export default {
+  name: 'App',
+  components: {
+    Homeader,
+    Myfooter  
+  }
+}
 </script>
+

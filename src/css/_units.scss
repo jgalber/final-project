@@ -6,17 +6,21 @@ $l-font: 3rem;
 $xl-font: 5rem;
 
 // Pixels
+$xv-pxl: 15px;
 $xl-pxl: 10px; 
+$vii-pxl: 7px;
 $l-pxl: 8px;
 $m-pxl: 6px;
 $s-pxl: 4px;
 $xs-pxl: 3px;
 $xxs-pxl: 2px;
 $xxxs-pxl: 1px;
+$neg-three-px: -3px;
 
 // Rems
 $micro-pos-value: .10rem; 
 $micro-neg-value: -0.10rem;
+$last-positive-rem-value: .1rem;
 $xxxxs-rem: .2rem;
 $xxxs-rem: .25rem;
 $xxs-rem: .5rem;
@@ -27,12 +31,20 @@ $l-rem: 3rem;
 $lx-rem: 3.5rem;
 $xl-rem: 4rem;
 $v-rem: 5rem;
+$vi-rem: 6rem;
+$vii-rem: 7rem;
+$viii-rem: 8rem;
+$x-rem: 10rem;
+$xii-rem: 12rem;
+$xx-rem: 20rem;
 $xxl-rem: 25rem;
 $xxxl-rem: 49.52rem;
 
 $header-rem: 10rem 0 8rem 0;
 
+$btn-show-padding: 0.35em 1.2em;
 
+// block 
 @mixin block {
     display: block;
     margin: 0 auto;

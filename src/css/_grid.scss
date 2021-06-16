@@ -7,7 +7,17 @@
     padding-bottom: $xs-rem;
 }
 
-// Tablet
+// Top Navbar
+@mixin navbar-tablet {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 1fr;
+    width: 100%;
+    height: fit-content;
+}
+
+// Sections Grid
 @mixin section-tablet {
     @include section-grid-setting;
     grid-template-columns: repeat(9, 1fr);
@@ -15,33 +25,36 @@
     grid-gap: $xs-rem;
 }
 
-// Tablet large
 @mixin section-tabletLarge {
-    @include section-grid-setting;
+    display: grid;
     grid-template-columns: repeat(9, 1fr);
-    grid-template-rows: $l-rem repeat(autofill 2, 1fr);
+    grid-template-rows: $v-rem repeat(2, 1fr);
+    grid-gap: $m-rem;
+    padding-bottom: $xs-rem;
 }
 
-// Tablet Xlarge
 @mixin section-tabletXLarge {
-    @include section-grid-setting;
-    grid-template-columns: repeat(11, 1fr);
-    grid-template-rows: $l-rem repeat(autofill 2, 1fr);
-    grid-gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(11,1fr);
+    grid-template-rows: $xl-rem repeat(3, 1fr);
+    grid-gap: $m-rem;
+    padding-bottom: $xs-rem;
 }
 
-// Desktop
 @mixin section-desktop {
-    @include section-grid-setting ;
+    display: grid;
     grid-template-columns: repeat(12,1fr);
-    grid-template-rows: $l-rem repeat(autofill 2, 1fr);
-    grid-gap: 2rem;
+    grid-template-rows: $v-rem repeat(3, 1fr);
+    grid-gap: $m-rem;
+    padding-bottom: $xs-rem;
 }
 
 @mixin section-desktopL {
-    @include section-grid-setting; 
-    grid-template-columns: repeat(14, 1fr);
-    grid-template-rows: $l-rem repeat(autofill 3, 1fr);    
+    display: grid;
+    grid-template-columns: repeat(14,1fr);
+    grid-template-rows: $vi-rem repeat(3, 1fr);
+    grid-gap: $xs-rem;
+    padding-bottom: $xs-rem;
 }
 
 // Specific 'Footer' column and row
@@ -49,3 +62,195 @@
     grid-column: 2;
     grid-row: 2;
 }
+
+// Advisor's page
+@mixin advisor-container-responsive {
+    @include responsive (tabletLarge) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: repeat(3, 1fr);
+    }
+    @include responsive (tabletXLarge) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: repeat(4, 1fr);
+    }
+    @include responsive (desktop) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: repeat(3, 1fr);
+    }
+    @include responsive (desktopLarge) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: repeat(2, 1fr);
+    }
+}
+
+@mixin div-no-class {
+    @include responsive(tabletLarge){
+        grid-column: 1;
+        grid-row: 1;
+        margin-bottom: $s-rem;
+    }
+    @include responsive(tabletXLarge){
+        grid-column: 1;
+        grid-row: 1;
+        margin-bottom: $s-rem;
+    }
+    @include responsive(desktop){
+        grid-column: 1;
+        grid-row: 1;
+        margin-bottom: $s-rem;
+    }
+    @include responsive(desktopLarge){
+        grid-column: 1;
+        grid-row: 1/ span 2;
+        margin-bottom: 0;
+    }
+}
+
+@mixin advisor-section-responsive {
+    @include responsive(tabletLarge){
+        grid-column: 2;
+        grid-row: 1 / span 3;
+    }
+    @include responsive(tabletXLarge){
+        grid-column: 2;
+        grid-row: 1 / span 4;
+    }
+    @include responsive(desktop){
+        grid-column: 2;
+        grid-row: 1 / span 2;
+    }
+    @include responsive(desktopLarge){
+        grid-column: 2;
+        grid-row: 1 / 2;
+    }
+}
+
+@mixin advisor-article-responsive {
+    @include responsive(tabletLarge){
+        grid-column: 1;
+        grid-row: 2;
+    }
+     @include responsive(tabletXLarge){
+        grid-column: 1;
+        grid-row: 2 / span 4;
+    }
+     @include responsive(desktop) {
+        grid-column: 1 / span 3;
+        grid-row: 3;
+        margin-left: $l-rem;
+        margin-right: $xl-rem;
+    }
+     @include responsive(desktopLarge) {
+        grid-column: 2;
+        grid-row: 2;
+        margin-right: $x-rem;
+    }
+}
+
+@mixin advisor5-article-responsive {
+    @include responsive(tabletLarge){
+        grid-column: 1;
+        grid-row: 2;
+     }
+     @include responsive(tabletXLarge){
+        grid-column: 1;
+        grid-row: 2 / span 4;
+     }
+     @include responsive(desktop) {
+        grid-column: 1 / span 3;
+        grid-row: 3;
+        margin-left: $l-rem;
+        margin-right: $xl-rem;
+     }
+     @include responsive(desktopLarge) {
+        grid-column: 2;
+        grid-row: 2;
+        margin-right: $vii-rem;
+     }
+}
+
+@mixin advisor6-article-responsive {
+    @include responsive(tabletLarge){
+        grid-column: 1;
+        grid-row: 2;
+    }
+    @include responsive(tabletXLarge){
+        grid-column: 1;
+        grid-row: 2 / span 4;
+    }
+    @include responsive(desktop) {
+        grid-column: 1 / span 3;
+        grid-row: 3;
+        margin-left: $l-rem;
+        margin-right: $xl-rem;
+    }
+    @include responsive(desktopLarge) {
+        grid-column: 2;
+        grid-row: 2;
+        margin-right: $v-rem;
+    }
+} 
+
+@mixin advisor7-article-responsive {
+    @include responsive(tabletLarge){
+        grid-column: 1;
+        grid-row: 2;
+    }
+    @include responsive(tabletXLarge){
+        grid-column: 1;
+        grid-row: 2 / span 4;
+    }
+    @include responsive(desktop) {
+        grid-column: 1 / span 3;
+        grid-row: 3;
+        margin-left: $v-rem;
+        margin-right: $v-rem;
+    }
+    @include responsive(desktopLarge) {
+        grid-column: 2;
+        grid-row: 2;
+        margin-right: $x-rem;
+    }
+}
+
+@mixin advisor8-article-responsive {
+    @include responsive(tabletLarge){
+        grid-column: 1;
+        grid-row: 2;
+     }
+     @include responsive(tabletXLarge){
+        grid-column: 1;
+        grid-row: 2 / span 4;
+     }
+     @include responsive(desktop) {
+        grid-column: 1 / span 3;
+        grid-row: 3;
+        margin-left: $v-rem;
+     }
+     @include responsive(desktopLarge) {
+        grid-column: 2;
+        grid-row: 2;
+        margin-right: $x-rem;
+     }
+}
+
+// Blog page - grid responsive
+@mixin blog-container-responsive {
+    @include responsive(desktop) {
+        display: grid;
+        grid-template-areas:  "heading heading heading"
+                              "image text text";
+    }
+    @include responsive(desktopLarge) {
+        display: grid;
+        grid-template-areas:  "heading heading heading heading"
+                              "image image image text";
+        margin-bottom: $v-rem;
+    }
+}
+
+

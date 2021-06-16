@@ -1,25 +1,29 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/home">Home</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link to="/blog">Blog</router-link> |
-      <router-link to="/destinations">Destinations</router-link> |
+      <router-link to="/">Home</router-link> 
+      <router-link to="/about">About</router-link> 
+      <router-link to="/blog">Blog</router-link> 
+      <router-link to="/advisors">Advisors</router-link> 
       <router-link to="/contact">Contact</router-link>
     </div>
-    <router-view/>
-    <Myfooter />
+    <router-view />
+    <Home />
   </div> 
 </template>
 
 <script>
-import Myfooter from './components/Myfooter.vue';
-
   export default {
-    name: 'App',
-    components: {
-        Myfooter
-    }
+    data() {
+      return {
+        active: 'Home'
+      }
+    },
+    methods: {
+      makeActive: function(item){
+        this.active = item;
+      }
+    },
   }
 </script>
 
@@ -30,14 +34,20 @@ import Myfooter from './components/Myfooter.vue';
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  margin: 0;
+  padding: 0;
+  height: fit-content;
 }
 
 #nav {
-  padding: 30px;
-
+  margin: 0;
+  padding: 0;
+  
   a {
+    display: none;
     font-weight: bold;
     color: #2c3e50;
+
 
     &.router-link-exact-active {
       color: #42b983;
